@@ -10,7 +10,7 @@ import (
 func SetupDatabaseConnection() *gorm.DB {
 	err := godotenv.Load()
 	if err != nil {
-		panic("Error while getting env")
+		panic("failed to get env")
 	}
 
 	db_host := os.Getenv("DB_HOST")
@@ -19,7 +19,7 @@ func SetupDatabaseConnection() *gorm.DB {
 	db_username := os.Getenv("DB_USERNAME")
 	db_password := os.Getenv("DB_PASSWORD")
 
-	dsn := "host=" + db_host + " user=" + db_username + " password=" + db_password + " dbname=" + db_database + " port=" + db_port + " sslmode=disable TimeZone=Asia/Shanghai"
+	dsn := "host=" + db_host + " user=" + db_username + " password=" + db_password + " dbname=" + db_database + " port=" + db_port + " sslmode=disable TimeZone=Asia/Jakarta"
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
