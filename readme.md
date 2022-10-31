@@ -2,19 +2,20 @@
 Hello World
 
 ## Getting Started
-1. Clone the repository
+1. Make sure you have already installed [Go](https://go.dev/dl/) and [PostgreSQL](https://www.postgresql.org/download/).
+2. Clone the repository
 ```
 git clone https://github.com/Hydra-Gang/talkie-be.git
 ```
 
-2. Install the dependencies
+3. Install the dependencies
 ```
 go get
 ```
 
-3. Duplicate the .env.example file to .env and fill the database credentials and the server port.
+4. Duplicate the .env.example file to .env and fill the database credentials and the server port.
 
-4. Run the development server
+5. Run the development server
 ```
 go run main.go
 ```
