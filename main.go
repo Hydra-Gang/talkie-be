@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 
@@ -12,7 +11,7 @@ import (
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		fmt.Println("Error getting from dotenv")
+		panic("failed to get env")
 	}
 
 	r := gin.Default()
