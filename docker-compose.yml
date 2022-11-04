@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:15
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: talkie
+    ports:
+      - 5432:5432
