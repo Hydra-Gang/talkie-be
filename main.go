@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 	"os"
 
@@ -11,15 +13,15 @@ import (
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		panic("failed to get env")
+		log.Fatal("failed to load .env file")
 	}
 
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
+	router := gin.Default()
+	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "hello world",
 		})
 	})
 
-	r.Run("localhost:" + os.Getenv("PORT"))
+	router.Run(fmt.Sprintf(":%s", os.Getenv("PORT")))
 }
