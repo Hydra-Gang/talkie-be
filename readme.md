@@ -13,9 +13,12 @@ Hello World
     go get
     ```
 
-4. Duplicate the .env.example file to .env and fill the database credentials and the server port.
+4. Duplicate the `.env.example` file to `.env` and fill the database credentials and the server port.
 
 5. Run the development server
     ```
-    go run main.go
+    go run .
     ```
+
+### Entity-Relationship Diagram
+![image](.github/erd.png)
