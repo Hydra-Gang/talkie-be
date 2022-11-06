@@ -18,7 +18,10 @@ func main() {
 		log.Fatal("failed to load .env file")
 	}
 
-	db,_ := configs.SetupDatabaseConnection()
+	db, err := configs.SetupDatabaseConnection()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// migrates all models
 	db.AutoMigrate(&models.User{})
