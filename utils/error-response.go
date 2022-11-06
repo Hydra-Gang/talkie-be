@@ -1,16 +1,18 @@
 package utils
 
-import "net/http"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 type ErrorResponse struct {
-	Message string
+	Message    string
 	StatusCode int
 }
 
-func SendErrorResponse(w http.ResponseWriter, res ErrorResponse) {
-	type errorResponse struct {
-		Message string `json:"error"`
-	}
-
-	SendResponse(w, res.StatusCode, errorResponse{ Message: res.Message })
+func SendErrorResponse(ctx *gin.Context, res ErrorResponse) {
+	ctx.JSON(
+		res.StatusCode,
+		gin.H{
+			"error": res.Message,
+		})
 }
