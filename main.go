@@ -24,7 +24,10 @@ func main() {
 	}
 
 	// migrates all models
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(
+		&models.User{},
+		&models.Group{},
+	)
 
 	router := gin.Default()
 	router.GET("/", func(c *gin.Context) {
